@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Список всех записей блога {% endblock %}
+{% block content %}
+    <h1>
+    Первая запись
+    </h1>
+    <a href="{% url 'blog-home' %}">Home</a><br>
+{#    <a href="{% url 'blog-record' %}">Blog record</a><br>#}
+    <a href="{% url 'blog-search' %}">Search</a><br>
+    <a href="{% url 'blog-signin' %}">Sign In</a><br>
+    <a href="{% url 'blog-signup' %}">Sign Up</a><br>
+    <a href="{% url 'blog-contact' %}">Contact</a><br>
+    <a href="{% url 'blog-contactthanks' %}">Contact Thanks</a><br>
+{% endblock %}

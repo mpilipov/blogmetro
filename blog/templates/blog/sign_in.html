@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Sign In
+{% endblock %}
+{% block content %}
+
+    <div class="text-center">
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        <form class="mx-auto form-signin" method="post" action="{% url 'blog-signin' %}">
+            {% csrf_token %}
+
+            <h1 class="mb-3 mt-3 text-center">Введите логин и пароль</h1>
+            <div class="col-md-5 mx-auto text-left">
+                <label for="inputUsername" class="mt-2">Имя пользователя</label>
+                {{ form.username }}
+                <label for="inputPassword" class="mt-2">Пароль</label>
+                {{ form.password }}
+                <button class="btn mt-4 btn-lg btn-primary btn-block" type="submit">Войти</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

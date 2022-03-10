@@ -1,0 +1,1 @@
+web: gunicorn Eight_Blog.wsgi --log-file -

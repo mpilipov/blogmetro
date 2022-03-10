@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    {#        Лого#}
+    <a href="{% url 'blog-home' %}" class="navbar-brand">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Kharkiv_Metro_logo.svg" width="50" height="50"
+             alt="logo">
+    </a>
+
+    {#        Формирование кнопки-гамбургера если узкий экран#}
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+                <a href="{% url 'blog-home' %}" class="nav-link" style="font-size: 20px">Харьковский Метрополитен</a>
+            </li>
+
+
+        </ul>
+        <a href="{% url 'blog-contact' %}" class="btn btn-outline-light mr-2" style="font-size: 18px">Контакты</a>
+
+        <form action="{% url 'blog-searchresult' %}" method="get" class="form-inline my-2 my-lg-0">
+            <input name='q' type="text" class="form-control mr-sm-2" placeholder="Поиск" aria-label="Поиск">
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-2" type="submit">Поиск</button>
+        </form>
+        {% if user.is_authenticated %}
+            <span class="navbar-text mr-2">{{ user }}</span>
+            <a href="{% url 'blog-signout' %}" class="btn btn-outline-light">Выход</a>
+        {% else %}
+            <a href="{% url 'blog-signin' %}" class="btn btn-outline-light mr-2">Вход</a>
+            <a href="{% url 'blog-signup' %}" class="btn btn-outline-light mr-2">Регистрация</a>
+        {% endif %}
+    </div>
+</nav>
