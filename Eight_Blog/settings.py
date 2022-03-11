@@ -92,7 +92,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'metroblog', # The Server name from 1.5
-        'USER': 'postgres', # The username from 1.6
+        'USER': 'misha7538', # The username from 1.6
         'PASSWORD': '7898', # The password from installation
         'HOST': 'localhost', # Host name/address from 1.6,
         'PORT': '' # Port from 1.6
